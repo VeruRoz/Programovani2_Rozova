@@ -1,0 +1,39 @@
+﻿Prohlížeč obchodní sítě
+Toto řešení představuje konzoloví prohlížeč obchodní sítě, která umožňuje zobrazit hierarchii obchodníků, zobrazovat jejích podřízené, nadřízená a kolik peněz vydělali. Systém umožňuje načítání a ukládání seznamů obchodníků do souborů.
+Data obchodníků
+Data o obchodnících jsou uložena ve formátu JSON. Při načítání dat je JSON deserializován do objektů třídy Salesman.
+Třídy
+Salesmen reprezentuje obchodníka v síti:
+•	ID – unikátní identifikátor
+•	Name – křestní jméno
+•	Surname – příjmení
+•	Sales – počet prodejů
+•	Subordinates – seznam podřízených obchodníků
+Metody:
+•	AddSubordinate(Salesman subordinate) – přidá podřízeného obchodníka do salesmen subordinate
+•	TotalSales(Salesman salesman) – rekurzivně vypočítá celkové prodeje obchodní sítě pod daným obchodníkem
+•	DeserializeTree(string jsonString) – převede JSON data na stromovou strukturu obchodníků
+UI dělá uživatelské rozhraní a interakci s uživatelem. Obsahuje:
+•	currentSalesman – aktuálně zvolený obchodník
+•	bosses – List nadřízených obchodníků používaný abychom věděli nadřízeného salesmana kterého máme vybraného
+•	currentUI – určuje v jakém uživatelském rozhraním jsme. 1 je menu kde se upravují obchodníci a 2 je menu kde se upravují seznamy
+•	curentMenu – aktivní menu v určitém uživatelském rozhraní
+•	currentFile – název aktuálního souboru
+•	currentFileSalesmen – seznam ID obchodníků v aktuálním souboru
+Metody:
+•	Render() – vykresluje hlavní uživatelské rozhraní
+•	RenderFirstMenu(), RenderSecondMenu(), RenderThirdMenu() – vykreslují jednotlivé sekce menu v 1 rozhraní
+•	Movement() – zpracovává uživatelský vstup a umožňuje navigaci v rozhraní
+•	DisplaySalesmenTree(Salesman node, string indent = "") – vypisuje strukturu obchodní sítě
+•	NewFile() – vytvoří nový soubor
+•	SaveFile() – uloží aktuální seznam obchodníků do souboru
+•	end() – ukončí program, případně se dotáže na uložení neuložených změn
+
+Ukládání a načítání souborů
+Aplikace umožňuje vytvoření, načtení a uložení seznamů obchodníků. Soubory se ukládají v textovém souboru ve složce ../../../lists/.
+Navigace v programu
+Uživatel může pomocí šipek procházet obchodní síť:
+•	Šipka nahoru/dolů – pohyb mezi podřízenými/seznamy
+•	Šipka vlevo/vpravo – přepínání mezi menu
+•	Enter – potvrzení výběru
+•	E – ukončení programu s možností uložení změn
