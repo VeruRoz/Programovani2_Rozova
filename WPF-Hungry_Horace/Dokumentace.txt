@@ -1,0 +1,60 @@
+Hungry Horace – Dokumentace
+MainWindow
+Gridy v MainWindow
+Obsahuje ètyøi gridy pro rùzné fáze hry:
+1.	Úvodní obrazovka (Start)
+o	Zobrazuje název hry a tlaèítko „Start Game“
+2.	Herní obrazovka (GameLevel_1)
+o	Obsahuje prostor pro vykreslení hry pomocí UserControl a zobrazení skóre
+3.	Výhra (Win)
+o	Zobrazuje zprávu pøi výhøe
+4.	Prohra (lost)
+o	Zobrazuje zprávu pøi prohøe
+C# kód
+Enumerace Stage – Uchovává aktuální fázi hry (Intro, Game, OutroWin, OutroLosse)
+LevelControl – Instance herní logiky (Level), která generuje a øídí herní obsah
+1.	Metoda LevelControl_SkoreChanged()
+o	Aktualizuje zobrazené skóre
+o	Pøepíná na výhru/prohru, pokud je skóre 6 nebo menší než 0
+2.	Metoda StartBTN_Click()
+o	Pøepne hru do fáze Game
+o	Zavolá metodu TogglePanels() pro aktualizaci viditelnosti
+3.	Metoda TogglePanels()
+o	Skryje všechny ètyøi obrazovky
+o	Zviditelní tu, která odpovídá aktuální fázi hry
+o	V pøípadì Game aktivuje focus na herní prvek (LevelControl) pro záchyt kláves
+UserControl
+UI Popis
+•	Møížka 10x10 reprezentuje herní plochu
+•	Okrajové èerné bloky (<Rectangle Fill="Black" />) tvoøí zdi mapy
+•	Šedé bloky s Tag="wall" pøedstavují vnitøní pøekážky
+•	Horace (hráè) je zelený blok (x:Name="Horace")
+•	Pøíšerka je fialový blok (x:Name="priserka"), který se pohybuje náhodnì
+•	Jídlo jsou žluté kruhy (<Ellipse Tag="food"/>), které hráè sbírá
+C# kód
+1.	Metoda Level()
+o	Inicializuje UI komponenty
+o	Nastaví výchozí skóre
+o	Spustí èasovaè pro pøíšerku
+o	Napojí událost Loaded
+2.	Metoda Level_Loaded()
+o	Aktivuje fokus na komponentu
+o	Zaregistruje obsluhu události KeyDown pro klávesy pohybu
+3.	Metoda Level_KeyDown()
+o	Detekuje klávesy smìrù (šipky)
+o	Posune Horace v møížce
+o	Zkontroluje kolize se zdí a pøíšerkou
+o	Pokud hráè sebere jídlo, zvýší skóre a skryje dané jídlo
+o	Pokud narazí do pøíšerky, hra konèí (Skore = -1)
+4.	Metoda Monster_Move()
+o	Pøíšerka se pohybuje náhodnì do sousedních polí
+5.	Metoda IsThereWall()
+o	Metoda vracející true, pokud jsou nové souøadnice mimo povolený rozsah nebo se na nich nachází pøekážka (wall)
+Herní pravidla
+•	Hráè se mùže pohybovat šipkami
+•	Srážka s jídlem pøidává skóre
+•	Srážka s pøíšerkou znamená konec hry
+•	Pokud Skore se rovná 6, hráè vyhrává a konèí hra
+Vazba na MainWindow
+Level je pøidán do herní èásti (GameLevel_1)
+MainWindow poslouchá SkoreChanged a pøepíná obrazovky (Win, lost, apod.)

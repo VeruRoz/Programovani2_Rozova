@@ -9,7 +9,7 @@
     <Border BorderThickness="2"
         BorderBrush="White"
         Margin="3"
-        Cursor="Hand">
+        Cursor="Hand"> 
         <Grid x:Name="GameBoard" Background="White"  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

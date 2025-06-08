@@ -41,7 +41,7 @@ public partial class MainWindow : Window
                 TogglePanels();
             }
             else if (noveSkore < 0)
-            {
+            { 
                 Stage = GameStage.OutroLosse;
                 TogglePanels();
             }

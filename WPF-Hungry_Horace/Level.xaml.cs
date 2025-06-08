@@ -149,7 +149,7 @@ namespace WPF_Hungry_Horace
                     }
 
 
-                }
+                } 
                 //je na příšrce?
                 int priserkaRow = Grid.GetRow(priserka);
                 int priserkaCol = Grid.GetColumn(priserka);

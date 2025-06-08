@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         Background="#FF1E1E1E">
 
-    <Grid>
+    <Grid> 
 
         <!-- Úvodní obrazovka -->
         <Grid x:Name="Start" Visibility="Visible" Background="#FF2E2E2E">
