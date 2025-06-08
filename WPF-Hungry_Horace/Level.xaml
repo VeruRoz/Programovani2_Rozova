@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="WPF_Hungry_Horace.Level"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Hungry_Horace"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border BorderThickness="2"
+        BorderBrush="White"
+        Margin="3"
+        Cursor="Hand">
+        <Grid x:Name="GameBoard" Background="White"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Zeď -->
+            <Rectangle Grid.Row="0" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="0" Grid.Column="1" Fill="Black" />
+            <Rectangle Grid.Row="0" Grid.Column="2" Fill="Black" />
+            <Rectangle Grid.Row="0" Grid.Column="3" Fill="Black" />
+            <Rectangle Grid.Row="0" Grid.Column="4" Fill="Black" />
+            <Rectangle Grid.Row="0" Grid.Column="5" Fill="Black" />
+            <Rectangle Grid.Row="0" Grid.Column="6" Fill="Black" />
+            <Rectangle Grid.Row="0" Grid.Column="7" Fill="Black" />
+            <Rectangle Grid.Row="0" Grid.Column="8" Fill="Black" />
+            <Rectangle Grid.Row="0" Grid.Column="9" Fill="Black" />
+
+            <Rectangle Grid.Row="9" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="1" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="2" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="3" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="4" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="5" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="6" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="7" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="8" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="9" Fill="Black" />
+
+            <Rectangle Grid.Row="0" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="1" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="2" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="3" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="4" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="5" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="6" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="7" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="8" Grid.Column="0" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="0" Fill="Black" />
+
+            <Rectangle Grid.Row="0" Grid.Column="9" Fill="Black" />
+            <Rectangle Grid.Row="1" Grid.Column="9" Fill="Black" />
+            <Rectangle Grid.Row="2" Grid.Column="9" Fill="Black" />
+            <Rectangle Grid.Row="3" Grid.Column="9" Fill="Black" />
+            <Rectangle Grid.Row="4" Grid.Column="9" Fill="Black" />
+            <Rectangle Grid.Row="5" Grid.Column="9" Fill="Black" />
+            <Rectangle Grid.Row="6" Grid.Column="9" Fill="Black" />
+            <Rectangle Grid.Row="7" Grid.Column="9" Fill="Black" />
+            <Rectangle Grid.Row="8" Grid.Column="9" Fill="Black" />
+            <Rectangle Grid.Row="9" Grid.Column="9" Fill="Black" />
+            
+            <!--zdi vevnitř-->
+            <Rectangle Grid.Row="5" Grid.Column="2" Fill="Gray" Tag="wall" />
+            <Rectangle Grid.Row="2" Grid.Column="5" Fill="Gray" Tag="wall"/>
+            <Rectangle Grid.Row="8" Grid.Column="2" Fill="Gray" Tag="wall"/>
+            <Rectangle Grid.Row="6" Grid.Column="5" Fill="Gray" Tag="wall"/>
+            <Rectangle Grid.Row="2" Grid.Column="8" Fill="Gray" Tag="wall"/>
+            <Rectangle Grid.Row="3" Grid.Column="4" Fill="Gray" Tag="wall"/>
+            <Rectangle Grid.Row="4" Grid.Column="8" Fill="Gray" Tag="wall"/>
+            <Rectangle Grid.Row="2" Grid.Column="6" Fill="Gray" Tag="wall"/>
+            <Rectangle Grid.Row="5" Grid.Column="5" Fill="Gray" Tag="wall"/>
+            
+            
+            <!-- Horace -->
+            <Rectangle x:Name="Horace" Grid.Row="8" Grid.Column="1" Fill="LimeGreen"  Width="50" Height="50" 
+         HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            <!--Monstrum-->
+            <Rectangle x:Name="priserka" Grid.Row="7" Grid.Column="7" Fill="DarkViolet"  Width="50" Height="50" 
+            HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            <!-- Jídlo -->
+           
+                <Ellipse Grid.Row="1" Grid.Column="1" Fill="Yellow" Width="10" Height="10" 
+         HorizontalAlignment="Center" VerticalAlignment="Center" Tag="food"/>
+                <Ellipse Grid.Row="3" Grid.Column="8" Fill="Yellow" Width="10" Height="10" 
+         HorizontalAlignment="Center" VerticalAlignment="Center" Tag="food"/>
+                <Ellipse Grid.Row="4" Grid.Column="5" Fill="Yellow" Width="10" Height="10" 
+         HorizontalAlignment="Center" VerticalAlignment="Center" Tag="food"/>
+                <Ellipse Grid.Row="3" Grid.Column="1" Fill="Yellow" Width="10" Height="10" 
+            HorizontalAlignment="Center" VerticalAlignment="Center" Tag="food"/>
+                <Ellipse Grid.Row="8" Grid.Column="8" Fill="Yellow" Width="10" Height="10" 
+             HorizontalAlignment="Center" VerticalAlignment="Center" Tag="food"/>
+                <Ellipse Grid.Row="5" Grid.Column="7" Fill="Yellow" Width="10" Height="10" 
+            HorizontalAlignment="Center" VerticalAlignment="Center" Tag="food"/>
+
+
+
+        </Grid> 
+    </Border>
+  
+</UserControl>
